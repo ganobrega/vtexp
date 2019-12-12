@@ -5,4 +5,5 @@ A better experience in VTEX.
 - 📁 Change History
 - 🚀 Incredibly faster interface
 - 🐻 Even a bear can use
-- 🍩 Intuitive and beautiful
+- 🌈 Intuitive and beautiful
+- ⏱ Don't waste time
