@@ -1,5 +1,5 @@
 # VTEXP 💅
-A better experience in VTEX.
+A powerfull and beauty experience in VTEX
 
 ## Features
 - 📁 Change History
@@ -7,3 +7,4 @@ A better experience in VTEX.
 - 🐻 Even a bear can use
 - 🌈 Intuitive and beautiful
 - ⏱ Don't waste time
+- ❌ No Adobe Flash Player
