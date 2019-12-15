@@ -1,5 +1,5 @@
 # VTEXP 💅
-A powerfull and beauty VTEX experience in a browser extension.
+A powerfull and graceful VTEX experience in a browser extension.
 
 ## Features
 - 📁 History of changes
