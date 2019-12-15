@@ -4,8 +4,8 @@ A powerfull and beauty VTEX experience in a browser extension.
 ## Features
 - 📁 History of changes
 - 🚀 Incredibly faster interface
-- 🐻 Even a bear can use
 - 🌈 Intuitive and beautiful
+- 🕶 Customizable
 - ⏱ Don't waste time
 - ❌ No Adobe Flash Player
 
@@ -13,3 +13,7 @@ A powerfull and beauty VTEX experience in a browser extension.
 - Chrome
 - Brave
 - Firefox
+
+## About
+The purpose of this tool is to make using VTEX more attractive, customizable, and enhance the use of the product.
+Use this tool at your own risk, all data we handle is encrypted and not sent to any server.
