@@ -1,0 +1,60 @@
+{
+  "manifest_version": 2,
+
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDesc__",
+  "version": "1.0",
+  "default_locale": "en",
+
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "dist/background.js"
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.myvtex.com/*",
+        "https://*.vtexcommercestable.com.br/*",
+        "https://*.vtexcommercebeta.com.br/*",
+        "https://*.vtexlocal.com.br/*",
+        "https://*.vtexlocal.com.br:*/*"
+      ],
+      "js": [
+        "dist/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+
+  "icons": {
+    "128": "icons/icon.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_title": "__MSG_extName__",
+    "default_popup": "dist/popup.html"
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+
+  "commands": {
+    "open-vtexp-popup": {
+      "default": "Ctrl+Shift+V",
+      "mac": "Command+Shift+V"
+    }
+  }
+
+}

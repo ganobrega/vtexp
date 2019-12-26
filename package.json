@@ -1,0 +1,62 @@
+{
+    "name": "vtexp",
+    "version": "1.0.1",
+    "description": "",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "compression-webpack-plugin": "^1.0.1",
+        "css-loader": "^0.28.7",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "file-loader": "^1.1.5",
+        "html-loader": "^0.5.1",
+        "html-webpack-plugin": "^2.30.1",
+        "node-sass": "^4.6.0",
+        "rimraf": "^2.6.2",
+        "sass-loader": "^6.0.6",
+        "standard": "^10.0.3",
+        "style-loader": "^0.19.0",
+        "url-loader": "^0.6.2",
+        "webpack": "^3.8.1"
+    },
+    "scripts": {
+        "prebuild": "npx rimraf ./extension/dist/",
+        "start": "npx webpack --config webpack.config.js -w -d",
+        "build": "npx webpack --config webpack.production.config.js -p",
+        "test": "npx standard"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ganobrega/vtexp"
+    },
+    "keywords": [
+        "vtexp",
+        "extension",
+        "extension-boilerplate",
+        "firefox-addon"
+    ],
+    "bugs": {
+        "url": "https://github.com/ganobrega/vtexp/issues"
+    },
+    "homepage": "https://github.com/ganobrega/vtexp",
+    "standard": {
+        "globals": [
+            "browser",
+            "chrome",
+            "window"
+        ],
+        "ignore": [
+            "extension/dist/",
+            "node_modules/"
+        ]
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "dependencies": {
+        "url-parse": "^1.4.7"
+    }
+}
