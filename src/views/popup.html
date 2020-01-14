@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>@</title>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/brands.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header py-2 px-3 flex flex-row items-center">
-        <div class="title"><span class="font-bold text-purple-700">VTEXP</span></div>
 
-        <ul class="devices flex flex-row">
-          <li class="device">
-            <button class="action p-2" data-value="desktop">
-              <img src="../images/icons/desktop-computer.png" height="18" width="18"/>
-            </button>
-          </li>
-          <li class="device">
-            <button class="action p-2"  data-value="mobile">
-              <img src="../images/icons/mobile-phone.png" height="18" width="18" />
-            </button>
-          </li>
-        </ul>
+<head>
+  <title>@</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/brands.min.css">
+</head>
 
-        <!-- <div class="options">
+<body>
+  <div class="container">
+    <div class="header py-2 px-3 flex flex-row items-center">
+      <div class="title">
+        <span class="font-bold text-purple-700">VTEXP</span>
+      </div>
+
+      <ul class="devices flex flex-row">
+        <li class="device">
+          <button class="action p-2" data-value="desktop">
+            <img src="../images/icons/desktop-computer.png" height="18" width="18" />
+          </button>
+        </li>
+        <li class="device">
+          <button class="action p-2" data-value="mobile">
+            <img src="../images/icons/mobile-phone.png" height="18" width="18" />
+          </button>
+        </li>
+      </ul>
+
+      <div>
+        <button class="action p-2" data-value="mobile">
+          <img src="../images/icons/gear.png" height="18" width="18" />
+        </button>
+      </div>
+
+      <!-- <div class="options">
           <a href="https://github.com/ganobrega/vtexp" ><i class="fab fa-github"></i></a>
         </div> -->
 
-        <!-- <div class="options">
+      <!-- <div class="options">
           <div role="button" title="Menu" class="open-options jfk-button-flat">
             <div class="img-settings button-right"></div>
           </div>
@@ -40,16 +50,42 @@
             </ul>
           </div>
         </div> -->
-      </div>
-      <div class="shortcuts pb-5">
-        <label class="bg-purple-500 text-white py-1 w-full flex px-3">Shortcuts</label>
-        <ul>
-          <li class="shortcut"> <button class="action px-3 py-2" data-value="admin-control">Admin Control</button> </li>
-          <li class="shortcut"> <button class="action px-3 py-2" data-value="file-system">File System</button> </li>
-          <li class="shortcut"> <button class="action px-3 py-2" data-value="cms">CMS</button> </li>
-          <li class="shortcut"> <button class="action px-3 py-2" data-value="current-layout-placeholder">Placeholder (Current Page)</button> </li>
-        </ul>
-      </div>
     </div>
-  </body>
+    <div class="environments pb-5">
+      <label class="bg-purple-500 text-white py-1 w-full flex px-3">Environments</label>
+      <ul>
+        <li class="environment">
+          <button class="action px-3 py-2" data-value="myvtex">My Vtex</button>
+        </li>
+        <li class="environment">
+          <button class="action px-3 py-2" data-value="stable">Stable</button>
+        </li>
+        <li class="environment">
+          <button class="action px-3 py-2" data-value="beta">Beta</button>
+        </li>
+        <li class="environment">
+          <button class="action px-3 py-2" data-value="local">Local</button>
+        </li>
+      </ul>
+    </div>
+    <div class="shortcuts pb-5">
+      <label class="bg-purple-500 text-white py-1 w-full flex px-3">Shortcuts</label>
+      <ul>
+        <li class="shortcut">
+          <button class="action px-3 py-2" data-value="admin-control">Admin Control</button>
+        </li>
+        <li class="shortcut">
+          <button class="action px-3 py-2" data-value="file-system">File System</button>
+        </li>
+        <li class="shortcut">
+          <button class="action px-3 py-2" data-value="cms">CMS</button>
+        </li>
+        <li class="shortcut">
+          <button disabled class="opacity-50 action px-3 py-2" data-value="current-layout-placeholder">Placeholder (Current Page)</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
 </html>

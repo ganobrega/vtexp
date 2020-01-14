@@ -40,12 +40,16 @@ class Popup {
         let value = e.currentTarget.getAttribute('data-value');
 
         let params = {
-          desktop: {
-            uam: false,
+          desktop() {
+            return {
+              uam: false,
+            }
           },
-          mobile: {
-            uam: true,
-            mobile: 4
+          mobile() {
+            return {
+              uam: true,
+              mobile: 4
+            }
           }
         }
   
@@ -59,7 +63,7 @@ class Popup {
           let currentUrl = currentTab.url;
   
           let newUrl = parseUrl(currentUrl);
-          let query = Object.entries(params[value]).map(el => el.join('=')).join('&');
+          let query = Object.entries(params[value]()).map(el => el.join('=')).join('&');
   
           newUrl.set('query', query);
   
@@ -68,6 +72,59 @@ class Popup {
   
       }, false)
     })
+
+    /**
+     * Enviroments
+     */
+    document.querySelectorAll('.environments .environment .action').forEach(el => {
+
+      el.addEventListener('click', (e) => {
+        let value = e.currentTarget.getAttribute('data-value');
+
+        chrome.tabs.query({ currentWindow: true, active: true }, function (tab) {
+          let currentTab = tab[0];
+          let currentUrl = currentTab.url;
+
+          let newUrl = parseUrl(currentUrl);
+
+          let storeName = newUrl.hostname.split('.')[0];
+
+          let params = {
+            'myvtex': (url) => {
+              url.set('host', `${storeName}.myvtex.com`)
+              return url;
+            },
+            'stable': (url) => {
+              url.set('host', `${storeName}.vtexcommercestable.com.br`)
+              return url;
+            },
+            'beta': (url) => {
+              url.set('host', `${storeName}.vtexcommercebeta.com.br`)
+              return url;
+            },
+            
+            'local': (url) => {
+              url.set('host', `${storeName}.vtexlocal.com.br`)
+              return url;
+            },
+            
+          }
+
+          if (params[value] === undefined) {
+            console.error('Invalid shortcut value');
+            return;
+          }
+
+          let parsedUrl = params[value](newUrl);
+          
+          console.log(parsedUrl)
+          
+          chrome.tabs.update(tab.id, { url: parsedUrl.href });
+        });
+
+      }, false)
+    })
+
 
     /**
      * Shortcuts
