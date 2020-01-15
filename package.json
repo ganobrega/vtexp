@@ -1,62 +1,61 @@
 {
-    "name": "vtexp",
-    "version": "1.0.1",
-    "description": "",
-    "license": "MIT",
-    "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-preset-env": "^1.6.1",
-        "babel-preset-stage-0": "^6.24.1",
-        "compression-webpack-plugin": "^1.0.1",
-        "css-loader": "^0.28.7",
-        "extract-text-webpack-plugin": "^3.0.2",
-        "file-loader": "^1.1.5",
-        "html-loader": "^0.5.1",
-        "html-webpack-plugin": "^2.30.1",
-        "node-sass": "^4.6.0",
-        "rimraf": "^2.6.2",
-        "sass-loader": "^6.0.6",
-        "standard": "^10.0.3",
-        "style-loader": "^0.19.0",
-        "url-loader": "^0.6.2",
-        "webpack": "^3.8.1"
-    },
-    "scripts": {
-        "prebuild": "npx rimraf ./extension/dist/",
-        "start": "npx webpack --config webpack.config.js -w -d",
-        "build": "npx webpack --config webpack.production.config.js -p",
-        "test": "npx standard"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ganobrega/vtexp"
-    },
-    "keywords": [
-        "vtexp",
-        "extension",
-        "extension-boilerplate",
-        "firefox-addon"
-    ],
-    "bugs": {
-        "url": "https://github.com/ganobrega/vtexp/issues"
-    },
-    "homepage": "https://github.com/ganobrega/vtexp",
-    "standard": {
-        "globals": [
-            "browser",
-            "chrome",
-            "window"
-        ],
-        "ignore": [
-            "extension/dist/",
-            "node_modules/"
-        ]
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
-    },
-    "dependencies": {
-        "url-parse": "^1.4.7"
-    }
+  "name": "vtexp",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://github.com/ganobrega/vtexp",
+  "scripts": {
+    "lint": "eslint {chrome,app}/**/*.{js,jsx} --fix",
+    "start": "cross-env NODE_ENV=development webpack --config webpack.dev.js --watch",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.dev.js --watch"
+  },
+  "dependencies": {
+    "emotion-theming": "^10.0.27",
+    "grommet": "^2.9.0",
+    "grommet-icons": "^4.4.0",
+    "polished": "^3.4.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.3",
+    "redux-persist": "^5.10.0",
+    "redux-persist-chrome-storage": "^1.0.1",
+    "redux-slider-monitor": "^2.0.0-2",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.0",
+    "url-parse": "^1.4.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.3",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.0.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.19.1",
+    "reactotron-react-js": "^3.3.7",
+    "redux-devtools": "^3.5.0",
+    "redux-devtools-dock-monitor": "^1.1.3",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-devtools-log-monitor": "^1.4.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.35.3",
+    "webpack-chrome-extension-reloader": "^1.3.0",
+    "webpack-cli": "^3.3.5",
+    "webpack-extension-manifest-plugin": "^0.4.3"
+  }
 }

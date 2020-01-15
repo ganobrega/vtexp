@@ -11,8 +11,6 @@ A powerfull and graceful VTEX experience in a browser extension.
 
 ## Supported Browsers
 - Chrome
-- Brave
-- Firefox
 
 ## About
 The purpose of this tool is to make using VTEX more attractive, customizable, and enhance the use of the product.
