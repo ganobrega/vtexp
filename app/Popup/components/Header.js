@@ -10,44 +10,50 @@ import parseUrl from 'url-parse';
 
 import GlobalActions from '../store/global/actions';
 
-const ParamAction = ({ value, children }) => {
+const injectParams = (params) => {
+  chrome.tabs.query({ currentWindow: true, active: true }, (tab) => {
+    const currentTab = tab[0];
+    const currentUrl = currentTab.url;
+
+    const url = parseUrl(currentUrl);
+
+    const query = Object.entries(params).map((el) => el.join('=')).join('&');
+
+    url.set('query', query);
+
+    chrome.tabs.update(tab.id, { url: url.href });
+  });
+}
+
+const SnapButton = ({ value, children }) => {
 
   const onClick = (ev) => {
-    console.log(ev);
 
     const params = {
       desktop() {
-        return {
+        injectParams({
           uam: false,
-        };
+        });
       },
       mobile() {
-        return {
+        injectParams({
           uam: true,
           mobile: 4,
-        };
+        });
       },
       cache() {
-        return {
-          utm_source: +new Date(),
-        };
+        injectParams({ utm_source: +new Date(), });
       },
+      bookmark() {
+        console.info('Open bookmark');
+      }
+
     };
 
     if (params[value] === undefined) {
-      throw Error('Device value not found');
+      throw Error('Action not found');
     } else {
-      chrome.tabs.query({ currentWindow: true, active: true }, (tab) => {
-        const currentTab = tab[0];
-        const currentUrl = currentTab.url;
-
-        const newUrl = parseUrl(currentUrl);
-        const query = Object.entries(params[value]()).map((el) => el.join('=')).join('&');
-
-        newUrl.set('query', query);
-
-        chrome.tabs.update(tab.id, { url: newUrl.href });
-      });
+      params[value]();
     }
 
   };
@@ -61,8 +67,8 @@ const ParamAction = ({ value, children }) => {
 
 const Devices = () => (
   <Box direction="row" gap="small">
-    <ParamAction value="mobile"><span role="img" aria-label="Mobile phone">📱</span></ParamAction>
-    <ParamAction value="desktop"><span role="img" aria-label="Desktop">🖥</span></ParamAction>
+    <SnapButton value="mobile"><span role="img" aria-label="Mobile phone">📱</span></SnapButton>
+    <SnapButton value="desktop"><span role="img" aria-label="Desktop">🖥</span></SnapButton>
   </Box>
 );
 
@@ -72,6 +78,7 @@ const Domains = () => (
       label="🌐"
       icon={false}
       items={[
+        { label: 'Production', onClick: () => { } },
         { label: 'Stable', onClick: () => { } },
         { label: 'Beta', onClick: () => { } },
         { label: 'My Vtex', onClick: () => { } },
@@ -79,6 +86,31 @@ const Domains = () => (
       ]}
     />
   </Box>
+);
+
+const Tools = () => (
+  <Box direction="row" gap="small">
+    <SnapButton value="bookmark"><span role="img" aria-label="Bookmark">📕</span></SnapButton>
+    <SnapButton value="cache"><span role="img" aria-label="Cache">🧻</span></SnapButton>
+  </Box>
+);
+
+const SnapButtons = () => (
+  <Box direction="row">
+    <Tools />
+
+    <SnapDivisor />
+
+    <Devices />
+
+    <SnapDivisor />
+
+    <Domains />
+  </Box>
+);
+
+const SnapDivisor = () => (
+  <Box className="divisor" border={{ color: 'light-1', size: 'thin' }} margin={{ vertical: 'medium', horizontal: 'medium' }} plain />
 );
 
 export default () => {
@@ -91,18 +123,8 @@ export default () => {
           <Box background="brand" flex="shrink" pad={{ horizontal: 'medium' }} round="medium"><Text size="xsmall">stable</Text></Box>
         </Box>
       </Box>
-      <Box direction="row">
 
-        <ParamAction value="cache"><span role="img" aria-label="Cache">🧻</span></ParamAction>
-
-        <Box className="divisor" border={{ color: 'light-1', size: 'thin' }} margin={{ vertical: 'medium', horizontal: 'medium' }} plain />
-
-        <Devices />
-
-        <Box className="divisor" border={{ color: 'light-1', size: 'thin' }} margin={{ vertical: 'medium', horizontal: 'medium' }} plain />
-
-        <Domains />
-      </Box>
+      <SnapButtons />
 
     </Box>
   );
