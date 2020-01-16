@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import * as _ from 'ramda';
 import { createGlobalStyle } from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
 
 // Grommet
 import { Box, Distribution, Text, Anchor } from 'grommet';
 import * as Icons from 'grommet-icons';
 
+
 // Components
 import Header from '../components/Header';
+import { VTEXMenu } from '../services/constants';
 
 
 const GlobalStyles = createGlobalStyle`
@@ -17,48 +19,62 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const Content = () => {
+const Content = (props) => {
 
-  const links = [
-    { title: 'ORDERS', icon: <Icons.Cart size="medium" color="brand" /> },
-    { title: 'TRANSACTIONS', icon: <Icons.CreditCard size="medium" color="brand" /> },
-    {
-      title: 'PRODUCTS', icon: <Icons.Catalog size="medium" color="brand" />
-    },
-    {
-      title: 'ANALYTICS', icon: <Icons.BarChart size="medium" color="brand" />
-    },
-    { title: 'CLIENTE', icon: <Icons.Group size="medium" color="brand" /> },
-    { title: 'STORE', icon: <Icons.Template size="medium" color="brand" /> },
-    { title: 'MARKETPLACE', icon: <Icons.Action size="medium" color="brand" /> },
-    { title: 'ACCOUNT', icon: <Icons.UserSettings size="medium" color="brand" /> },
-  ];
+  const [links, setLinks] = useState(VTEXMenu);
+
+
+  // useEffect(() => {
+  //   console.log(links)
+  // }, [links]);
+
+  if (links === undefined) {
+    return (null);
+  }
+
+  let onClick = (value) => {
+    if (value.path.indexOf('~') == 0) {
+      console.log('Redirect activeTab to: ', value.path);
+    }
+    else if (value.path.indexOf('#') == 0) {
+      // TODO: Find the parent and set him as Link
+    }
+    else {
+      setLinks([
+        { name: 'Back', icon: 'FormPreviousLink', path: '#' },
+        ...value.children
+      ]);
+    }
+  }
 
   return (
     <Box pad={{ vertical: 'small', horizontal: 'small' }} direction="row" align="center" justify="center" wrap>
 
-      {links.map(item => {
-        let { title, icon } = item;
+      {links.map((item, index) => {
+        let { name, icon } = item;
+        let Icon = icon === undefined ? (<Icons.Cart />) : Icons[icon];
 
         return (
-          <>
-            <Box pad="small" width="40%" round="xsmall" height="100px" align="center" margin="small" border={{ color: 'light-3' }} justify="center">
-              {icon}
-              <Text size="small" weight="bold" color="brand" textAlign="center">{title}</Text>
-            </Box>
-          </>
+          <Box key={index} onClick={() => onClick(item)} pad="small" width="40%" round="xsmall" height="100px" align="center" margin="small" border={{ color: 'light-3' }} justify="center">
+            <Icon />
+            <Text size="small" weight="bold" color="brand" textAlign="center">{name}</Text>
+          </Box>
         )
       }
       )}
+
 
     </Box>
   );
 }
 
-export default () => (
+
+export default (props) => (
   <>
     <GlobalStyles />
+
     <Header />
     <Content />
   </>
-)
+);
+

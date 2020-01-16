@@ -9,6 +9,8 @@ import { grommet } from 'grommet/themes';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 
 // Views
 import Main from './views/Main';
@@ -16,15 +18,37 @@ import Fallback from './views/Fallback';
 
 // Variables
 import Constants from './services/constants';
+import Routes from './routes';
 
 Reactotron
   .configure()
   .connect();
 
-export default () => (
-  <Provider store={store}>
-    <Grommet theme={grommet} full>
-      {true ? <Main /> : <Fallback />}
-    </Grommet>
-  </Provider>
-);
+
+
+export default () => {
+  return (
+    <Provider store={store}>
+      <Router>
+        <Grommet theme={grommet} full>
+          {Routes.map(({ path, Component }) => (
+            <Route key={path} exact path={path}>
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={300}
+                  classNames="page"
+                  unmountOnExit
+                >
+                  <div className="page">
+                    <Component />
+                  </div>
+                </CSSTransition>
+              )}
+            </Route>
+          ))}
+        </Grommet>
+      </Router>
+    </Provider>
+  );
+}
