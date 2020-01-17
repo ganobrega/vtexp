@@ -15,7 +15,7 @@ export const VTEXMenu = [
       {
         name: 'Managment',
         path: '/orders/managment',
-        icon: 'Cart',
+        icon: 'Briefcase',
         children: [
           { name: 'All Orders', icon: 'Cart', path: '~/admin/checkout', },
           { name: 'Subscriptions', icon: 'Cart', path: '~/admin/checkout/#/subscriptions', },
@@ -26,24 +26,68 @@ export const VTEXMenu = [
       {
         name: 'Stock & Shipping',
         path: '/orders/logistics',
-        icon: 'Cart',
+        icon: 'Deliver',
         children: [
-          { name: 'Mainboard', icon: 'Cart', path: '~/admin/logistics/', },
-          { name: 'Shipping Fees', icon: 'Cart', path: '~/admin/logistics/#/freight-table-management', },
-          { name: 'Freight Simulation', icon: 'Cart', path: '~/admin/logistics/#/freight-simulation', },
-          { name: 'Inventory', icon: 'Cart', path: '~/admin/logistics/#/warehouse-management', },
-          { name: 'Geolocation', icon: 'Cart', path: '~/admin/logistics/#/geolocation', },
-          { name: 'Holidays', icon: 'Cart', path: '~/admin/logistics/#/holidays', },
-          { name: 'Settings', icon: 'Cart', path: '~/admin/logistics/#/config', },
-          { name: 'Pickup Points', icon: 'Cart', path: '~/admin/logistics/#/pickup-points', },
+          { name: 'Mainboard', icon: 'LineChart', path: '~/admin/logistics/', },
+          { name: 'Shipping Fees', icon: 'Flag', path: '~/admin/logistics/#/freight-table-management', },
+          { name: 'Freight Simulation', icon: 'Calculator', path: '~/admin/logistics/#/freight-simulation', },
+          { name: 'Inventory', icon: 'Folder', path: '~/admin/logistics/#/warehouse-management', },
+          { name: 'Geolocation', icon: 'Compass', path: '~/admin/logistics/#/geolocation', },
+          { name: 'Holidays', icon: 'Calendar', path: '~/admin/logistics/#/holidays', },
+          { name: 'Pickup Points', icon: 'Location', path: '~/admin/logistics/#/pickup-points', },
+          { name: 'Settings', icon: 'SettingsOption', path: '~/admin/logistics/#/config', },
         ]
       }
 
     ]
   },
 
-  { name: 'Transactions', path: '/transactions', icon: 'CreditCard' },
-  { name: 'Products', path: '/products', icon: 'Catalog' },
+  {
+    name: 'Transactions',
+    path: '/transactions',
+    icon: 'CreditCard',
+    children: [
+      {
+        name: 'Payments',
+        icon: 'Currency',
+        path: '/transactions/payments',
+        children: [
+          {
+            name: 'Transactions',
+            path: '~/admin/pci-gateway/#/transactions',
+            icon: 'Transaction',
+          },
+          {
+            name: 'Bank conciliations',
+            path: '~/admin/pci-gateway/#/bank-conciliations',
+            icon: 'Bundle',
+          },
+          {
+            name: 'Worth Shopping',
+            path: '~/admin/Site/Vale.aspx',
+            icon: 'Ticket',
+          },
+          {
+            name: 'Settings',
+            path: '~/admin/Site/Vale.aspx',
+            icon: 'SettingsOption',
+          }
+        ]
+      },
+    ]
+  },
+  {
+    name: 'Products',
+    path: '/products',
+    icon: 'Catalog',
+    children: [
+      {
+        name: 'Produtos e SKUs',
+        path: '~/admin/Site/Produto.aspx',
+        icon: 'Bike',
+      }
+    ]
+  },
   {
     name: 'Analytics', path: '/analytics', icon: 'BarChart',
   },
