@@ -51,7 +51,7 @@ const Content = (props) => {
     else if (value.path.indexOf('#') == 0) {
       let newPath = roadPath.splice(0, roadPath.length - 2);
       setLinks([
-        { name: 'Back', icon: 'FormPreviousLink', path: '#' },
+        { name: 'Back', icon: 'FormPreviousLink', path: '#', invert: true },
         ...(_.path(newPath, VTEXMenu))
       ]);
       setRoadPath(newPath);
@@ -61,7 +61,7 @@ const Content = (props) => {
       setRoadPath([...roadPath, (index - 1) < 0 ? 0 : index - 1, 'children']);
 
       setLinks([
-        { name: 'Back', icon: 'FormPreviousLink', path: '#' },
+        { name: 'Back', icon: 'FormPreviousLink', path: '#', invert: true, },
         ...value.children
       ].filter(x => x !== undefined));
     }
@@ -69,16 +69,16 @@ const Content = (props) => {
 
   return (
     <Animated animationIn="zoomIn" animationOut="fadeOut" animationInDuration={300} isVisible={!refreshing}>
-      <Box pad={{ vertical: 'small', horizontal: 'small' }} direction="row" align="center" justify="center" wrap>
+      <Box pad={{ vertical: 'small', horizontal: 'small' }} direction="row" align="start" justify="center" overflow="auto" fill wrap>
 
         {links.map((item, index) => {
           let { name, icon } = item;
           let Icon = icon === undefined ? (<Icons.Cart />) : Icons[icon];
 
           return (
-            <Box key={index} onClick={() => onClick(item, index)} pad="small" width="40%" round="xsmall" height="100px" align="center" margin="small" border={{ color: 'light-3' }} justify="center">
+            <Box key={index} focusIndicator={false} onClick={() => onClick(item, index)} pad="small" width="40%" round="xsmall" height="100px" align="center" margin="small" background={item.invert ? 'brand' : 'white'} border={{ color: 'light-3' }} justify="center">
               <Icon />
-              <Text size="small" weight="bold" color="brand" textAlign="center">{name}</Text>
+              <Text size="small" weight="bold" color={item.invert ? 'white' : 'brand'} textAlign="center">{name}</Text>
             </Box>
           )
         }
