@@ -3,20 +3,22 @@ import { createGlobalStyle } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Grommet
-import { Box, Text } from 'grommet';
+import { Box, Distribution, Text, Anchor } from 'grommet';
+import * as Icons from 'grommet-icons';
 
 const GlobalStyles = createGlobalStyle`
   html, body, #root{
     width: 400px;
-    height: 300px;
+    height: 150px;
   }
 `;
 
 export default () => (
   <>
     <GlobalStyles />
-    <Box>
-      <Text size="large"> Não foi localizado um link compatível com a extensão :( </Text>
+    <Box pad="large" align="center" justify="center" gap="medium" fill>
+      <Icons.Alert size="large" color="brand" />
+      <Text size="medium"> Essa página não é uma loja VTEX.</Text>
     </Box>
   </>
 );

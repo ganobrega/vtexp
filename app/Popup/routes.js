@@ -3,6 +3,7 @@ import * as Icons from 'grommet-icons';
 
 import Main from './views/Main';
 import Fallback from './views/Fallback';
+import Loading from './views/Loading';
 
 const Routes = [
   {
@@ -12,7 +13,12 @@ const Routes = [
   },
   {
     name: 'Main',
+    path: '/',
     Component: Main
+  },
+  {
+    name: 'Loading',
+    Component: Loading
   },
 ]
 

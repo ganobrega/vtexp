@@ -12,6 +12,7 @@ const config = {
     app: path.join(__dirname, './chrome/static/index.js'),
     background: path.join(__dirname, './chrome/scripts/background.js'),
     content: path.join(__dirname, './chrome/scripts/content.js'),
+    detector: path.join(__dirname, './chrome/scripts/detector.js'),
   },
   output: {
     path: path.resolve(__dirname, './build'),
@@ -39,6 +40,7 @@ const config = {
       entries: {
         background: 'background',
         content: 'content',
+        detector: 'detector',
       },
     }),
     new CopyPlugin([

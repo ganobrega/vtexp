@@ -1,8 +1,8 @@
 export const VTEX_HOSTS = [
-  'myvtex.com',
-  'vtexcommercestable.com.br',
-  'vtexcommercebeta.com.br',
-  'vtexlocal.com.br',
+  { label: 'my-vtex', host: 'myvtex.com', },
+  { label: 'stable', host: 'vtexcommercestable.com.br', },
+  { label: 'beta', host: 'vtexcommercebeta.com.br', },
+  { label: 'local', host: 'vtexlocal.com.br', },
 ];
 
 export const VTEXMenu = [
