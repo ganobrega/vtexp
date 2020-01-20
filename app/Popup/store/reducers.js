@@ -1,7 +1,5 @@
-import global from './global';
-import informations from './informations';
+import globals from './globals';
 
 export default {
-  global,
-  informations,
+  globals,
 };

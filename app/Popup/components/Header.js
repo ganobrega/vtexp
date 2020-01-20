@@ -25,7 +25,7 @@ const injectParams = (params) => {
   });
 }
 
-const SnapButton = ({ value, children }) => {
+const SnapButton = ({ value, children, disabled }) => {
 
   const onClick = (ev) => {
 
@@ -59,9 +59,9 @@ const SnapButton = ({ value, children }) => {
   };
 
   return (
-    <Box direction="column" align="center" justify="center">
+    <Box direction="column" align="center" justify="center" disabled={disabled} >
       <Button plain round="medium" pading="small" onClick={onClick}>{children}</Button>
-    </Box>
+    </Box >
   );
 };
 
@@ -90,7 +90,7 @@ const Domains = () => (
 
 const Tools = () => (
   <Box direction="row" gap="small">
-    <SnapButton value="bookmark"><span role="img" aria-label="Bookmark">📕</span></SnapButton>
+    <SnapButton disabled={true} value="bookmark"><span role="img" aria-label="Bookmark">📕</span></SnapButton>
     <SnapButton value="cache"><span role="img" aria-label="Cache">🧻</span></SnapButton>
   </Box>
 );

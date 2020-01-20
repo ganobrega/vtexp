@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { useSelector } from 'react-redux';
 
 
 // Grommet
@@ -28,12 +29,22 @@ const Content = (props) => {
 }
 
 
-export default (props) => (
-  <>
-    <GlobalStyles />
+export default (props) => {
 
-    <Header />
-    <Content />
-  </>
-);
+  const globals = useSelector(state => state.globals);
+
+  useEffect(() => {
+    console.log(globals);
+
+  }, [globals])
+
+  return (
+    <>
+      <GlobalStyles />
+
+      <Header />
+      <Content />
+    </>
+  );
+}
 
