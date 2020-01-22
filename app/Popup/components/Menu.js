@@ -18,13 +18,13 @@ function findPath(a, obj) {
   return iter(obj, []) && result || undefined;
 }
 
-const MenuItem = ({ icon, text, path, invert = false, onClick }) => {
+const MenuItem = ({ icon, text, path, invert = false, onClick, blank }) => {
   let Icon = icon === undefined ? (<Icons.Cart />) : Icons[icon];
 
   return (
-    <Box focusIndicator={false} onClick={onClick} pad="small" width="40%" round="xsmall" height="100px" align="center" margin={invert ? { right: '46%', left: '3%' } : "small"} background={invert ? 'brand' : 'white'} border={{ color: 'light-3' }} justify="center">
-      <Icon />
-      <Text size="small" weight="bold" color={invert ? 'white' : 'brand'} textAlign="center">{text}</Text>
+    <Box focusIndicator={false} onClick={!blank && onClick} width="40%" round="xsmall" height="100px" align="center" background={invert ? 'brand' : 'white'} margin="small" border={!blank && { color: "light-3" }} justify="center">
+      {!blank && <Icon />}
+      {!blank && <Text size="small" weight="bold" color={invert ? 'white' : 'brand'} textAlign="center">{text}</Text>}
     </Box>
   );
 }
@@ -84,10 +84,17 @@ export default () => {
     <Animated animationIn="zoomIn" animationOut="fadeOut" animationInDuration={300} isVisible={!refreshing}>
       <Box pad={{ vertical: 'small', horizontal: 'small' }} direction="row" align="start" justify="center" overflow="auto" fill wrap>
         {lastPath.length > 0 && (
-          <MenuItem onClick={() => onClick({ path: '#' })} icon="FormPreviousLink" text="Back" path="#" invert />
+          <>
+            <MenuItem onClick={() => onClick({ path: '#' })} icon="FormPreviousLink" text="Back" path="#" invert />
+            {/* <MenuItem blank={true} /> */}
+          </>
         )}
 
         {links.map((item, index) => (<MenuItem onClick={() => onClick(item)} icon={item.icon} text={item.name} path={item.path} />))}
+
+        {(links.length + 1 % 2 !== 0) && (
+          <MenuItem blank={true} />
+        )}
 
       </Box>
     </Animated>
