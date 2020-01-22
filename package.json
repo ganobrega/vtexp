@@ -12,10 +12,11 @@
   },
   "dependencies": {
     "animate.css": "^3.7.2",
-    "emotion-theming": "^10.0.27",
+    "cheerio": "^1.0.0-rc.3",
     "grommet": "^2.9.0",
     "grommet-icons": "^4.4.0",
     "polished": "^3.4.2",
+    "query-string": "^6.10.1",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-animated-css": "^1.2.1",
@@ -29,6 +30,7 @@
     "redux-persist-chrome-storage": "^1.0.1",
     "redux-slider-monitor": "^2.0.0-2",
     "redux-thunk": "^2.3.0",
+    "string": "^3.3.3",
     "styled-components": "^5.0.0",
     "url-parse": "^1.4.7"
   },

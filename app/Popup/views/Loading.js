@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { withRouter } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
-import { setAccount } from '../store/global/actions';
+import { setAccount } from '../store/globals/actions';
 
-
-import { detectVTEX, identifyVTEXEnvironment } from '../services/helpers';
+import VTEX from '../services/vtex';
 
 const GlobalStyles = createGlobalStyle`
   html, body, #root{
@@ -18,9 +17,12 @@ export default withRouter((props) => {
 
   const dispatch = useDispatch();
 
+  const vtex = new VTEX();
+
+
   // Detect VTEX
   useEffect(() => {
-    detectVTEX()
+    vtex.detect()
       .then(accountName => {
         if (accountName) {
           dispatch(setAccount(accountName));
@@ -38,7 +40,7 @@ export default withRouter((props) => {
 
       <p></p>
     </>
-  );
+
 }
 
 )

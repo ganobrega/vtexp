@@ -9,7 +9,7 @@ export const VTEXMenu = [
   {
     name: 'Orders',
     path: '/orders',
-    icon: 'Cart',
+    icon: 'Notes',
     children: [
 
       {
@@ -92,7 +92,23 @@ export const VTEXMenu = [
     name: 'Analytics', path: '/analytics', icon: 'BarChart',
   },
   { name: 'Customer', path: '/customer', icon: 'Group' },
-  { name: 'Store', path: '/store', icon: 'Template' },
+  {
+    name: 'Store',
+    path: '/store',
+    icon: 'Template',
+    children: [
+      {
+        name: 'CMS',
+        path: '~/admin/Site/Produto.aspx',
+        icon: 'Template',
+      },
+      {
+        name: 'Checkout',
+        path: '~/admin/portal',
+        icon: 'Basket',
+      }
+    ]
+  },
   { name: 'Marketplace', path: '/marketplace', icon: 'Action' },
   { name: 'Account', path: '/account', icon: 'UserSettings' },
 

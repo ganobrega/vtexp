@@ -21,7 +21,7 @@ Reactotron
   .configure()
   .connect();
 
-
+global.Reactotron = Reactotron;
 
 
 export default (props) => {

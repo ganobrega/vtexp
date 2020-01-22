@@ -7,8 +7,9 @@ import {
 import * as Icons from 'grommet-icons';
 
 import parseUrl from 'url-parse';
+import queryString from 'query-string';
 
-import GlobalActions from '../store/global/actions';
+import GlobalActions from '../store/globals/actions';
 
 const injectParams = (params) => {
   chrome.tabs.query({ currentWindow: true, active: true }, (tab) => {
@@ -17,9 +18,14 @@ const injectParams = (params) => {
 
     const url = parseUrl(currentUrl);
 
-    const query = Object.entries(params).map((el) => el.join('=')).join('&');
+    let query = queryString.parse(url.query);
 
-    url.set('query', query);
+    query = {
+      ...query,
+      ...params
+    }
+
+    url.set('query', queryString.stringify(query));
 
     chrome.tabs.update(tab.id, { url: url.href });
   });
