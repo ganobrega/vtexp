@@ -22,7 +22,7 @@ const MenuItem = ({ icon, text, path, invert = false, onClick }) => {
   let Icon = icon === undefined ? (<Icons.Cart />) : Icons[icon];
 
   return (
-    <Box focusIndicator={false} onClick={onClick} pad="small" width="40%" round="xsmall" height="100px" align="center" margin="small" background={invert ? 'brand' : 'white'} border={{ color: 'light-3' }} justify="center">
+    <Box focusIndicator={false} onClick={onClick} pad="small" width="40%" round="xsmall" height="100px" align="center" margin={invert ? { right: '46%', left: '3%' } : "small"} background={invert ? 'brand' : 'white'} border={{ color: 'light-3' }} justify="center">
       <Icon />
       <Text size="small" weight="bold" color={invert ? 'white' : 'brand'} textAlign="center">{text}</Text>
     </Box>
