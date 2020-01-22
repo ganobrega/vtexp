@@ -8,8 +8,8 @@ import { Box, Distribution, Text, Anchor } from 'grommet';
 
 
 // Components
-import Header from '../components/Header';
-import Menu from '../components/Menu';
+import Header from '../components/header';
+import Menu from '../components/menu';
 
 
 
@@ -34,6 +34,7 @@ export default (props) => {
   const globals = useSelector(state => state.globals);
 
   useEffect(() => {
+    console.log(global.accountName)
     console.log(globals);
 
   }, [globals])

@@ -1,9 +1,9 @@
 import React from 'react';
 import * as Icons from 'grommet-icons';
 
-import Main from './views/Main';
-import Fallback from './views/Fallback';
-import Loading from './views/Loading';
+import Main from './views/main';
+import Fallback from './views/fallback';
+import Loading from './views/loading';
 
 const Routes = [
   {
