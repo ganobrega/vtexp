@@ -19,7 +19,6 @@ export default withRouter((props) => {
 
   const vtex = new VTEX();
 
-
   // Detect VTEX
   useEffect(() => {
     vtex.detect()
@@ -37,10 +36,7 @@ export default withRouter((props) => {
   return (
     <>
       <GlobalStyles />
-
       <p></p>
     </>
-
-}
-
-)
+  );
+});
