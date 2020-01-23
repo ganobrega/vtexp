@@ -11,22 +11,10 @@
 //   })
 // })
 
-const adminAttacher = () => {
-  console.log('adminAttacher');
-}
 
-const renderAttacher = () => {
-  console.log('renderAttacher');
-}
-
-const isAdmin = () => {
-  return document.getElementById('render-admin.container') !== null
-}
-
-(() => {
-  if (isAdmin()) {
-    adminAttacher();
-  } else {
-    renderAttacher();
+export default {
+  init() {
+    console.log('Anchors')
   }
-})()
+
+}

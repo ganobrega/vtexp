@@ -11,7 +11,7 @@ const config = {
   entry: {
     app: path.join(__dirname, './chrome/static/index.js'),
     background: path.join(__dirname, './chrome/scripts/background.js'),
-    content: path.join(__dirname, './chrome/scripts/content.js'),
+    attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
     detector: path.join(__dirname, './chrome/scripts/detector.js'),
   },
   output: {
