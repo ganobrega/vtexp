@@ -12,16 +12,15 @@ export const VTEXMenu = [
     icon: 'Notes',
     children: [
 
-      {
-        name: 'Managment',
-        path: '/orders/managment',
-        icon: 'Briefcase',
-        children: [
-          { name: 'All Orders', icon: 'Cart', path: '~/admin/checkout', },
-          { name: 'Subscriptions', icon: 'Cart', path: '~/admin/checkout/#/subscriptions', },
-          { name: 'Settings', icon: 'Cart', path: '~/admin/checkout/#/configurations', },
-        ]
-      },
+      // {
+      //   name: 'Managment',
+      //   path: '/orders/managment',
+      //   icon: 'Briefcase',
+      //   children: [
+      //   ]
+      // },
+      { name: 'All Orders', icon: 'UnorderedList', path: '~/admin/checkout', },
+      { name: 'Subscriptions', icon: 'Link', path: '~/admin/checkout/#/subscriptions', },
 
       {
         name: 'Stock & Shipping',
@@ -37,43 +36,47 @@ export const VTEXMenu = [
           { name: 'Pickup Points', icon: 'Location', path: '~/admin/logistics/#/pickup-points', },
           { name: 'Settings', icon: 'SettingsOption', path: '~/admin/logistics/#/config', },
         ]
-      }
+      },
+
+      { name: 'Settings', icon: 'SettingsOption', path: '~/admin/checkout/#/configurations', },
 
     ]
   },
 
   {
-    name: 'Transactions',
-    path: '/transactions',
+    name: 'Payments',
+    path: '/payments',
     icon: 'CreditCard',
     children: [
       {
-        name: 'Payments',
-        icon: 'Currency',
-        path: '/transactions/payments',
-        children: [
-          {
-            name: 'Transactions',
-            path: '~/admin/pci-gateway/#/transactions',
-            icon: 'Transaction',
-          },
-          {
-            name: 'Bank conciliations',
-            path: '~/admin/pci-gateway/#/bank-conciliations',
-            icon: 'Bundle',
-          },
-          {
-            name: 'Worth Shopping',
-            path: '~/admin/Site/Vale.aspx',
-            icon: 'Ticket',
-          },
-          {
-            name: 'Settings',
-            path: '~/admin/Site/Vale.aspx',
-            icon: 'SettingsOption',
-          }
-        ]
+        name: 'Transactions',
+        path: '~/admin/pci-gateway/#/transactions',
+        icon: 'Transaction',
       },
+      {
+        name: 'Bank Conciliations',
+        path: '~/admin/pci-gateway/#/bank-conciliations',
+        icon: 'Bundle',
+      },
+      {
+        name: 'Gift Card',
+        path: '~/admin/Site/Vale.aspx',
+        icon: 'Gift',
+      },
+      {
+        name: 'Settings',
+        path: '~/admin/Site/Vale.aspx',
+        icon: 'SettingsOption',
+      }
+
+
+      // {
+      //   name: 'Payments',
+      //   icon: 'Currency',
+      //   path: '/transactions/payments',
+      //   children: [
+      //   ]
+      // },
     ]
   },
   {
@@ -82,9 +85,19 @@ export const VTEXMenu = [
     icon: 'Catalog',
     children: [
       {
-        name: 'Produtos e SKUs',
+        name: 'Products & SKUs',
         path: '~/admin/Site/Produto.aspx',
         icon: 'Bike',
+      },
+      {
+        name: 'Prices',
+        path: '~/admin/pricing/#/prices',
+        icon: 'Currency',
+      },
+      {
+        name: 'Promos & Fees',
+        path: '~/admin/rnb/#/campaigns',
+        icon: 'Tag',
       }
     ]
   },
@@ -99,7 +112,7 @@ export const VTEXMenu = [
     children: [
       {
         name: 'CMS',
-        path: '~/admin/Site/Produto.aspx',
+        path: '~/admin/a',
         icon: 'Template',
       },
       {
@@ -111,5 +124,6 @@ export const VTEXMenu = [
   },
   { name: 'Marketplace', path: '/marketplace', icon: 'Action' },
   { name: 'Account', path: '/account', icon: 'UserSettings' },
+  { name: 'Account2', path: '/account', icon: 'UserSettings' },
 
 ];
