@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Popup from '../../app/Popup';
+import Popup from '../../app/popup';
 
 // Styles
 import './index.css';

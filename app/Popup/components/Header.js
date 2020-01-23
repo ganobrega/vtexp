@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 import {
-  Heading, Button, Menu, Box, Text,
+  Heading, Button, Menu, Box, Text, Drop
 } from 'grommet';
 
 import * as Icons from 'grommet-icons';
 
 import parseUrl from 'url-parse';
 import queryString from 'query-string';
-
-import GlobalActions from '../store/globals/actions';
 
 const injectParams = (params) => {
   chrome.tabs.query({ currentWindow: true, active: true }, (tab) => {
@@ -33,7 +31,9 @@ const injectParams = (params) => {
   });
 }
 
-const SnapButton = ({ value, children, disabled }) => {
+const SnapButton = ({ value, children, disabled, tooltip }) => {
+  const [over, setOver] = useState();
+  const ref = useRef();
 
   const onClick = (ev) => {
 
@@ -67,14 +67,39 @@ const SnapButton = ({ value, children, disabled }) => {
   };
 
   return (
-    <Button plain round="medium" pading="small" onClick={onClick} disabled={disabled}>{children}</Button>
+    <Box direction="column" align="center" justify="center" overflow="visible">
+      <Button
+        plain
+        ref={ref}
+        onMouseOver={() => setOver(true)}
+        onMouseOut={() => setOver(false)}
+        onFocus={() => { }}
+        onBlur={() => { }}
+        round="medium"
+        pading="small"
+        onClick={onClick}
+        disabled={disabled}>{children}</Button>
+
+      {ref.current && over && (
+        <Drop align={{ top: "bottom" }} target={ref.current} overflow="unset" plain>
+          <Box
+            margin="xsmall"
+            pad={{ vertical: "xsmall", horizontal: "medium" }}
+            background="dark-3"
+            round={{ size: "medium" }}
+          >
+            <Text size="small">{tooltip}</Text>
+          </Box>
+        </Drop>
+      )}
+    </Box>
   );
 };
 
 const Devices = () => (
   <Box direction="row" gap="small">
-    <SnapButton value="mobile"><span role="img" aria-label="Mobile phone">📱</span></SnapButton>
-    <SnapButton value="desktop"><span role="img" aria-label="Desktop">🖥</span></SnapButton>
+    <SnapButton value="mobile" tooltip="Mobile view"><span role="img" aria-label="Mobile phone">📱</span></SnapButton>
+    <SnapButton value="desktop" tooltip="Desktop view"><span role="img" aria-label="Desktop">🖥</span></SnapButton>
   </Box>
 );
 
@@ -97,8 +122,8 @@ const Domains = () => (
 
 const Tools = () => (
   <Box direction="row" gap="small">
-    <SnapButton disabled={true} value="bookmark"><span role="img" aria-label="Bookmark">📕</span></SnapButton>
-    <SnapButton value="cache"><span role="img" aria-label="Cache">🧻</span></SnapButton>
+    <SnapButton disabled={true} value="bookmark" tooltip="Bookmark"><span role="img" aria-label="Bookmark">📕</span></SnapButton>
+    <SnapButton value="cache" tooltip="Clean Cache"><span role="img" aria-label="Cache">🧻</span></SnapButton>
   </Box>
 );
 
