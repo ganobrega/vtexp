@@ -25,6 +25,7 @@ export default withRouter((props) => {
       .then(accountName => {
         if (accountName) {
           dispatch(setAccount(accountName));
+          global.accountName = accountName;
 
           props.history.push('/')
         } else {

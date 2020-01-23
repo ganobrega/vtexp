@@ -20,6 +20,8 @@ const injectParams = (params) => {
 
     let query = queryString.parse(url.query);
 
+    delete query.mobile;
+
     query = {
       ...query,
       ...params
@@ -65,9 +67,7 @@ const SnapButton = ({ value, children, disabled }) => {
   };
 
   return (
-    <Box direction="column" align="center" justify="center" disabled={disabled} >
-      <Button plain round="medium" pading="small" onClick={onClick}>{children}</Button>
-    </Box >
+    <Button plain round="medium" pading="small" onClick={onClick} disabled={disabled}>{children}</Button>
   );
 };
 
@@ -81,6 +81,7 @@ const Devices = () => (
 const Domains = () => (
   <Box direction="column" justify="center">
     <Menu
+      disabled={true}
       label="🌐"
       icon={false}
       items={[
@@ -109,9 +110,9 @@ const SnapButtons = () => (
 
     <Devices />
 
-    <SnapDivisor />
+    {/* <SnapDivisor /> */}
 
-    <Domains />
+    {/* <Domains /> */}
   </Box>
 );
 
@@ -122,11 +123,11 @@ const SnapDivisor = () => (
 export default () => {
 
   return (
-    <Box direction="row" justify="between" pad={{ vertical: 'small', horizontal: 'medium' }}>
+    <Box direction="row" justify="between" pad={{ vertical: 'small', horizontal: 'large' }} gap="small">
       <Box direction="row" gap="small">
         <Heading level={3} size="large">VTEXP</Heading>
         <Box direction="column" align="center" justify="center">
-          <Box background="brand" flex="shrink" pad={{ horizontal: 'medium' }} round="medium"><Text size="xsmall">stable</Text></Box>
+          <Box background="brand" flex="shrink" pad={{ horizontal: 'medium' }} round="medium"><Text size="xsmall" truncate>{global.accountName}</Text></Box>
         </Box>
       </Box>
 

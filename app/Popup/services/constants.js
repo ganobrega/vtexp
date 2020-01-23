@@ -7,6 +7,46 @@ export const VTEX_HOSTS = [
 
 export const VTEXMenu = [
   {
+    name: 'Products',
+    path: '/products',
+    icon: 'Catalog',
+    children: [
+      {
+        name: 'Products & SKUs',
+        path: '~/admin/Site/Produto.aspx',
+        icon: 'Bike',
+      },
+      {
+        name: 'Prices',
+        path: '~/admin/pricing/#/prices',
+        icon: 'Currency',
+      },
+      {
+        name: 'Promos & Fees',
+        path: '~/admin/rnb/#/campaigns',
+        icon: 'Tag',
+      }
+    ]
+  },
+  {
+    name: 'Store',
+    path: '/store',
+    icon: 'Template',
+    children: [
+      {
+        name: 'CMS',
+        path: '~/admin/a',
+        icon: 'Template',
+      },
+      {
+        name: 'Checkout',
+        path: '~/admin/portal',
+        icon: 'Basket',
+      }
+    ]
+  },
+
+  {
     name: 'Orders',
     path: '/orders',
     icon: 'Notes',
@@ -79,51 +119,12 @@ export const VTEXMenu = [
       // },
     ]
   },
+
   {
-    name: 'Products',
-    path: '/products',
-    icon: 'Catalog',
-    children: [
-      {
-        name: 'Products & SKUs',
-        path: '~/admin/Site/Produto.aspx',
-        icon: 'Bike',
-      },
-      {
-        name: 'Prices',
-        path: '~/admin/pricing/#/prices',
-        icon: 'Currency',
-      },
-      {
-        name: 'Promos & Fees',
-        path: '~/admin/rnb/#/campaigns',
-        icon: 'Tag',
-      }
-    ]
+    name: 'Analytics', path: '/analytics', icon: 'BarChart', disabled: true,
   },
-  {
-    name: 'Analytics', path: '/analytics', icon: 'BarChart',
-  },
-  { name: 'Customer', path: '/customer', icon: 'Group' },
-  {
-    name: 'Store',
-    path: '/store',
-    icon: 'Template',
-    children: [
-      {
-        name: 'CMS',
-        path: '~/admin/a',
-        icon: 'Template',
-      },
-      {
-        name: 'Checkout',
-        path: '~/admin/portal',
-        icon: 'Basket',
-      }
-    ]
-  },
-  { name: 'Marketplace', path: '/marketplace', icon: 'Action' },
-  { name: 'Account', path: '/account', icon: 'UserSettings' },
-  { name: 'Account2', path: '/account', icon: 'UserSettings' },
+  { name: 'Customer', path: '/customer', icon: 'Group', disabled: true, },
+  { name: 'Marketplace', path: '/marketplace', icon: 'Action', disabled: true, },
+  { name: 'Account', path: '/account', icon: 'UserSettings', disabled: true, },
 
 ];

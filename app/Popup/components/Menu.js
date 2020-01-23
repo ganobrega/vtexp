@@ -3,7 +3,7 @@ import parseUrl from 'url-parse';
 import * as _ from 'ramda';
 import { Animated } from "react-animated-css";
 
-import { Box, Distribution, Text, Anchor } from 'grommet';
+import { Button, Box, Distribution, Text, Anchor } from 'grommet';
 import * as Icons from 'grommet-icons';
 
 import { VTEXMenu } from '../services/constants';
@@ -20,16 +20,39 @@ function findPath(a, obj) {
   return iter(obj, []) && result || undefined;
 }
 
-const MenuItem = ({ icon, text, path, invert = false, onClick, blank }) => {
+const MenuItem = ({ icon, text, path, invert = false, onClick, blank, disabled }) => {
   let Icon = icon === undefined ? (<Icons.Cart />) : Icons[icon];
 
   return (
-    <Box focusIndicator={false} onClick={!blank && onClick} width="40%" round="xsmall" height="100px" align="center" background={invert ? 'brand' : 'white'} margin="small" border={!blank && { color: "light-3" }} justify="center">
-      {!blank && <Icon />}
-      {!blank && <Text size="small" weight="bold" color={invert ? 'white' : 'brand'} textAlign="center">{text}</Text>}
+    <Box
+      width="40%"
+      round="xsmall"
+      height="100px"
+
+      margin="small"
+      border={!blank && { color: "light-3" }}
+      background={invert ? 'brand' : 'white'}
+    >
+      <Box
+        as={Button}
+        onClick={!blank && onClick}
+        focusIndicator={false}
+        disabled={disabled}
+        align="center"
+        justify="center"
+        style={{ display: 'flex' }}
+        plain
+        fill
+      >
+        {!blank && <Icon />}
+        {!blank && <Text size="small" weight="bold" color={invert ? 'white' : 'brand'} textAlign="center">{text}</Text>}
+
+      </Box>
     </Box>
   );
 }
+
+// disabled={disabled} style={{ dislpay: 'flex' }} direction="column" plain fill focusIndicator={false} icon={!blank && <Icon />} label={!blank && <Text size="small" weight="bold" color={invert ? 'white' : 'brand'} textAlign="center">{text}</Text>} onClick={!blank && onClick}
 
 
 export default () => {
@@ -101,7 +124,7 @@ export default () => {
 
   return (
     <Animated animationIn="zoomIn" animationOut="fadeOut" animationInDuration={300} isVisible={!refreshing}>
-      <Box pad={{ vertical: 'small', horizontal: 'small' }} direction="row" align="start" justify="center" overflow="auto" fill wrap>
+      <Box direction="row" align="start" justify="center" overflow="auto" fill wrap>
         {
           /* Back Button */
           lastPath.length > 0 && (<MenuItem onClick={() => onClick({ path: '#' })} icon="FormPreviousLink" text="Back" path="#" invert />)
@@ -109,7 +132,7 @@ export default () => {
 
         {
           /* Menu items */
-          links.map(item => (<MenuItem onClick={() => onClick(item)} icon={item.icon} text={item.name} path={item.path} />))
+          links.map(item => (<MenuItem onClick={() => onClick(item)} icon={item.icon} text={item.name} path={item.path} disabled={item.disabled} />))
         }
 
         {
