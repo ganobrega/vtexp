@@ -1,6 +1,6 @@
 import AdminAttacher from './admin';
 import RenderAttachment from './render';
-
+import Detector from './lib/detector';
 
 
 const adminAttacher = () => {
@@ -22,6 +22,8 @@ const isVtexRender = () => {
 }
 
 (() => {
+  Detector.init();
+
   if (isAdmin()) {
     adminAttacher();
   } else {

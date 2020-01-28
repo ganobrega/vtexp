@@ -4,13 +4,18 @@
   "description": "__MSG_extDesc__",
   "version": "1.0.0",
   "default_locale": "en",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "<all_urls>"
+  ],
   "background": {
     "persistent": false,
     "scripts": [
       "background.js"
     ]
   },
-  "devtools_page": "devtools.html",
   "content_scripts": [
     {
       "matches": [
@@ -36,13 +41,8 @@
   "browser_action": {
     "default_icon": "icons/icon.png",
     "default_title": "__MSG_extName__",
-    "default_popup": "index.html"
+    "default_popup": "popup.html"
   },
-  "permissions": [
-    "activeTab",
-    "storage",
-    "tabs",
-    "<all_urls>"
-  ],
+  "devtools_page": "devtools.init.html",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }

@@ -7,6 +7,7 @@
   "homepage": "https://github.com/ganobrega/vtexp",
   "scripts": {
     "lint": "eslint {chrome,app}/**/*.{js,jsx} --fix",
+    "clean": "npx rimraf build/",
     "start": "cross-env NODE_ENV=development webpack --config webpack.dev.js --watch",
     "build": "cross-env NODE_ENV=production webpack --config webpack.dev.js --watch"
   },

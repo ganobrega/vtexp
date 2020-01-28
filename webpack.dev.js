@@ -9,11 +9,11 @@ const config = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: {
-    app: path.join(__dirname, './chrome/static/index.js'),
-    background: path.join(__dirname, './chrome/scripts/background.js'),
-    attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
     detector: path.join(__dirname, './chrome/scripts/detector.js'),
-    devtools: path.join(__dirname, './chrome/scripts/devtools.js'),
+    popup: path.join(__dirname, './chrome/static/popup.js'),
+    devtools: path.join(__dirname, './chrome/static/devtools.js'),
+    attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
+    background: path.join(__dirname, './chrome/scripts/background.js'),
   },
   output: {
     path: path.resolve(__dirname, './build'),
@@ -24,25 +24,32 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './chrome/static/index.html',
+      filename: 'popup.html',
+      template: './chrome/static/popup.html',
+      chunks: ['popup'],
+      excludeChunks: ['devtools', 'attacher', 'background']
     }),
     new HtmlWebpackPlugin({
       filename: 'devtools.html',
       template: './chrome/static/devtools.html',
+      chuncks: ['devtools'],
+      excludeChunks: ['popup', 'attacher', 'background']
     }),
     new HtmlWebpackPlugin({
-      filename: 'devtools-panel.html',
-      template: './chrome/static/devtools-panel.html',
+      filename: 'devtools.init.html',
+      template: './chrome/static/devtools.init.html',
+      excludeChunks: ['devtools', 'popup', 'attacher', 'background']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'popup.disabled.html',
+      template: './chrome/static/popup.disabled.html',
+      excludeChunks: ['devtools', 'popup', 'attacher', 'background']
     }),
     new ChromeExtensionReloader({
       port: 9090,
       reloadPage: true,
       entries: {
         background: 'background',
-        content: 'content',
-        detector: 'detector',
-        devtools: 'devtools',
       },
     }),
     new CopyPlugin([
