@@ -13,6 +13,7 @@ const config = {
     background: path.join(__dirname, './chrome/scripts/background.js'),
     attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
     detector: path.join(__dirname, './chrome/scripts/detector.js'),
+    devtools: path.join(__dirname, './chrome/scripts/devtools.js'),
   },
   output: {
     path: path.resolve(__dirname, './build'),
@@ -23,16 +24,16 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'VTEXP',
-      meta: {
-        charset: 'utf-8',
-        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-        'theme-color': '#000000',
-      },
-      manifest: 'manifest.json',
       filename: 'index.html',
       template: './chrome/static/index.html',
-      hash: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'devtools.html',
+      template: './chrome/static/devtools.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'devtools-panel.html',
+      template: './chrome/static/devtools-panel.html',
     }),
     new ChromeExtensionReloader({
       port: 9090,
@@ -41,6 +42,7 @@ const config = {
         background: 'background',
         content: 'content',
         detector: 'detector',
+        devtools: 'devtools',
       },
     }),
     new CopyPlugin([
