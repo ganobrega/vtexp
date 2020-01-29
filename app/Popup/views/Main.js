@@ -26,7 +26,7 @@ const Content = (props) => {
       <Menu />
     </>
   );
-}
+};
 
 
 export default (props) => {
@@ -34,10 +34,9 @@ export default (props) => {
   const globals = useSelector(state => state.globals);
 
   useEffect(() => {
-    console.log(global.accountName)
+    console.log(global.accountName);
     console.log(globals);
-
-  }, [globals])
+  }, [globals]);
 
   return (
     <>
@@ -47,5 +46,5 @@ export default (props) => {
       <Content />
     </>
   );
-}
+};
 
