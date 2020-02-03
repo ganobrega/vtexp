@@ -20,7 +20,7 @@ export const TableIt = ({ data }) => {
         <TableRow>
           {data.headers.map(header => {
             return (
-              <TableCell scope="col" border="bottom"> {header.label} </TableCell>
+              <TableCell scope="col" border="bottom" {...header.headerProps}> {header.label} </TableCell>
             )
           })}
         </TableRow>
@@ -30,10 +30,9 @@ export const TableIt = ({ data }) => {
           return (
             <TableRow>
               {data.headers.map(header => {
-                let props = omit(header, ['label', 'name']);
                 return (
                   <TableCell scope="row">
-                    <Text size="normal" {...props}>{item[header.name]}</Text>
+                    <Text size="normal" {...header.itemsProps}>{item[header.name]}</Text>
                   </TableCell>
                 )
               })}
