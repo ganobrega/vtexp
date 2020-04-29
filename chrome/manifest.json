@@ -25,14 +25,6 @@
         "detector.js"
       ],
       "run_at": "document_idle"
-    },
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "attacher.js"
-      ]
     }
   ],
   "icons": {

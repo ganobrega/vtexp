@@ -12,7 +12,7 @@ const config = {
     detector: path.join(__dirname, './chrome/scripts/detector.js'),
     popup: path.join(__dirname, './chrome/static/popup.js'),
     devtools: path.join(__dirname, './chrome/static/devtools.js'),
-    attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
+    // attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
     background: path.join(__dirname, './chrome/scripts/background.js'),
   },
   output: {
@@ -27,23 +27,23 @@ const config = {
       filename: 'popup.html',
       template: './chrome/static/popup.html',
       chunks: ['popup'],
-      excludeChunks: ['devtools', 'attacher', 'background']
+      excludeChunks: ['devtools', /*'attacher',*/ 'background']
     }),
     new HtmlWebpackPlugin({
       filename: 'devtools.html',
       template: './chrome/static/devtools.html',
       chuncks: ['devtools'],
-      excludeChunks: ['popup', 'attacher', 'background']
+      excludeChunks: ['popup', /*'attacher',*/ 'background']
     }),
     new HtmlWebpackPlugin({
       filename: 'devtools.init.html',
       template: './chrome/static/devtools.init.html',
-      excludeChunks: ['devtools', 'popup', 'attacher', 'background']
+      excludeChunks: ['devtools', 'popup', /*'attacher',*/ 'background']
     }),
     new HtmlWebpackPlugin({
       filename: 'popup.disabled.html',
       template: './chrome/static/popup.disabled.html',
-      excludeChunks: ['devtools', 'popup', 'attacher', 'background']
+      excludeChunks: ['devtools', 'popup', /*'attacher',*/ 'background']
     }),
     new ChromeExtensionReloader({
       port: 9090,
