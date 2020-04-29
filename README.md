@@ -2,12 +2,12 @@
 A powerfull and graceful VTEX experience in a browser extension.
 
 ## Features
-- 📁 History of changes
 - 🚀 Incredibly faster interface
 - 🌈 Intuitive and beautiful
-- 🕶 Customizable
 - ⏱ Don't waste time
-- ❌ No Adobe Flash Player
+- ~~📁 History of changes~~
+- ~~🕶 Customizable~~
+- ~~❌ No Adobe Flash Player~~
 
 ## Supported Browsers
 - Chrome
