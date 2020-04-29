@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 
+// Icons: https://materialdesignicons.com/
+
 import {
   Heading, Button, Menu, Box, Text, Drop
 } from 'grommet';
@@ -47,6 +49,12 @@ const SnapButton = ({ value, children, disabled, tooltip }) => {
         injectParams({
           uam: true,
           mobile: 4,
+        });
+      },
+      tablet() {
+        injectParams({
+          uam: true,
+          mobile: 3,
         });
       },
       cache() {
@@ -98,6 +106,7 @@ const SnapButton = ({ value, children, disabled, tooltip }) => {
 
 const Devices = () => (
   <Box direction="row" gap="small">
+    <SnapButton value="tablet" tooltip="Tablet view"><span role="img" aria-label="Tablet phone">📱</span></SnapButton>
     <SnapButton value="mobile" tooltip="Mobile view"><span role="img" aria-label="Mobile phone">📱</span></SnapButton>
     <SnapButton value="desktop" tooltip="Desktop view"><span role="img" aria-label="Desktop">🖥</span></SnapButton>
   </Box>
