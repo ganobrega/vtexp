@@ -3,31 +3,10 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDesc__",
   "version": "1.0.0",
-  "default_locale": "en",
-  "background": {
-    "persistent": false,
-    "scripts": [
-      "background.js"
-    ]
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "detector.js"
-      ],
-      "run_at": "document_idle"
-    },
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "attacher.js"
-      ]
-    }
+  "default_locale": "pt-BR",
+  "permissions": [
+    "activeTab",
+    "tabs"
   ],
   "icons": {
     "128": "icons/icon.png"
@@ -35,13 +14,8 @@
   "browser_action": {
     "default_icon": "icons/icon.png",
     "default_title": "__MSG_extName__",
-    "default_popup": "index.html"
+    "default_popup": "popup.html"
   },
-  "permissions": [
-    "activeTab",
-    "storage",
-    "tabs",
-    "<all_urls>"
-  ],
+  "devtools_page": "devtools.init.html",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }
