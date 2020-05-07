@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import Reactotron from 'reactotron-react-js';
-
 import parseUrl from 'url-parse';
+import Reactotron from 'reactotron-react-js';
+import { CSSTransition } from 'react-transition-group';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 // Grommet
 import { Grommet } from 'grommet';
@@ -10,8 +12,6 @@ import { grommet } from 'grommet/themes';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { CSSTransition } from 'react-transition-group'
 
 // Variables
 import Routes from './routes';
@@ -25,7 +25,6 @@ global.Reactotron = Reactotron;
 
 
 export default (props) => {
-
 
   return (
     <Provider store={store}>
@@ -53,4 +52,4 @@ export default (props) => {
       </Router>
     </Provider>
   );
-}
+};

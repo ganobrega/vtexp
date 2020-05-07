@@ -9,10 +9,19 @@ const config = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: {
-    app: path.join(__dirname, './chrome/static/index.js'),
-    background: path.join(__dirname, './chrome/scripts/background.js'),
-    attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
+    /**
+     * Statics
+     */
+    popup: path.join(__dirname, './chrome/static/popup.js'),
+    devtools: path.join(__dirname, './chrome/static/devtools.js'),
+    'devtools.init': path.join(__dirname, './chrome/static/devtools.init.js'),
+
+    /**
+     * Scripts
+     */
     detector: path.join(__dirname, './chrome/scripts/detector.js'),
+    // attacher: path.join(__dirname, './chrome/scripts/attacher.js'),
+    background: path.join(__dirname, './chrome/scripts/background.js'),
   },
   output: {
     path: path.resolve(__dirname, './build'),
@@ -22,25 +31,45 @@ const config = {
     extensions: ['*', '.js'],
   },
   plugins: [
+    /**
+     * Popup
+     */
     new HtmlWebpackPlugin({
-      title: 'VTEXP',
-      meta: {
-        charset: 'utf-8',
-        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-        'theme-color': '#000000',
-      },
-      manifest: 'manifest.json',
-      filename: 'index.html',
-      template: './chrome/static/index.html',
-      hash: true,
+      filename: 'popup.html',
+      template: './chrome/static/popup.html',
+      chunks: ['popup'],
+      excludeChunks: ['devtools', 'devtools.init', /*'attacher',*/ 'background']
     }),
+    new HtmlWebpackPlugin({
+      filename: 'popup.disabled.html',
+      template: './chrome/static/popup.disabled.html',
+      inject: false
+    }),
+
+    /**
+     * Devtools
+     */
+    new HtmlWebpackPlugin({
+      filename: 'devtools.init.html',
+      template: './chrome/static/devtools.init.html',
+      excludeChunks: ['devtools', 'detector', 'popup', /*'attacher',*/ 'background']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'devtools.html',
+      template: './chrome/static/devtools.html',
+      excludeChunks: ['devtools.init', 'detector', 'popup', /*'attacher',*/ 'background']
+    }),
+
+    /**
+     * Plugins
+     */
+
     new ChromeExtensionReloader({
       port: 9090,
       reloadPage: true,
       entries: {
+        contentScripts: [/*'attacher',*/ 'detector'],
         background: 'background',
-        content: 'content',
-        detector: 'detector',
       },
     }),
     new CopyPlugin([
