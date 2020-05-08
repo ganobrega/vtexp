@@ -1,7 +1,9 @@
+![Travis](https://travis-ci.org/ganobrega/vtexp.svg?branch=master)
+![GitHub](https://img.shields.io/github/license/ganobrega/vtexp)
+
 # VTEXP 💅
 A powerfull and graceful VTEX experience in a browser extension.
 
-![](https://travis-ci.org/ganobrega/vtexp.svg?branch=master)
 
 ## Features
 - 🚀 Incredibly faster interface
