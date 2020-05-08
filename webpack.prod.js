@@ -33,7 +33,7 @@ const config = {
       filename: 'popup.html',
       template: './chrome/static/popup.html',
       chunks: ['popup'],
-      excludeChunks: ['devtools', 'detector', 'background'],
+      excludeChunks: ['detector', 'background'],
     }),
 
     /**
