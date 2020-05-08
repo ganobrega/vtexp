@@ -163,7 +163,7 @@ const SnapDivisor = () => (
 export default () => (
   <Box direction="row" justify="between" pad={{ vertical: 'small', horizontal: 'large' }} gap="small">
     <Box direction="row" gap="small">
-      <Heading level={3} size="large"><Anchor href="https://github.com/ganobrega/vtexp" color="dark-3" label="VTEXP" /></Heading>
+      <Heading level={3} size="large"><Anchor href="https://github.com/ganobrega/vtexp" color="dark-2" label="VTEXP" /></Heading>
       <Box direction="column" align="center" justify="center">
         <Box background="brand" flex="shrink" pad={{ horizontal: 'medium' }} round="medium"><Text size="xsmall" truncate>{global.accountName}</Text></Box>
       </Box>
