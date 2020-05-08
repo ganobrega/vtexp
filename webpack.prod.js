@@ -1,13 +1,11 @@
 const path = require('path');
-const ChromeExtensionReloader = require('webpack-chrome-extension-reloader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const WebpackExtensionManifestPlugin = require('webpack-extension-manifest-plugin');
 const baseManifest = require('./chrome/manifest.json');
 
 const config = {
-  mode: 'development',
-  devtool: 'cheap-module-source-map',
+  mode: 'production',
   entry: {
     /**
      * Statics
@@ -41,14 +39,6 @@ const config = {
     /**
      * Plugins
      */
-    new ChromeExtensionReloader({
-      port: 9090,
-      reloadPage: true,
-      entries: {
-        contentScripts: ['detector'],
-        background: 'background',
-      },
-    }),
     new CopyPlugin([
       {
         from: 'chrome/icons',

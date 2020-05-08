@@ -6,7 +6,6 @@
   "default_locale": "en",
   "permissions": [
     "activeTab",
-    "storage",
     "tabs",
     "<all_urls>"
   ],
@@ -31,10 +30,8 @@
     "128": "icons/icon.png"
   },
   "browser_action": {
-    "default_icon": "icons/icon.png",
-    "default_title": "__MSG_extName__",
-    "default_popup": "popup.html"
+    "default_icon": "icons/icon-disabled.png",
+    "default_title": "__MSG_extName__"
   },
-  "devtools_page": "devtools.init.html",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
 }
