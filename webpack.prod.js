@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const WebpackExtensionManifestPlugin = require('webpack-extension-manifest-plugin');
 const baseManifest = require('./chrome/manifest.json');
+const pkg = require('./package.json');
 
 const config = {
   mode: 'production',
@@ -54,6 +55,7 @@ const config = {
     new WebpackExtensionManifestPlugin({
       config: {
         base: baseManifest,
+        extend: { version: pkg.version },
       },
     }),
   ],
