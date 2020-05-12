@@ -3,11 +3,8 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDesc__",
   "default_locale": "en",
-  "permissions": [
-    "activeTab",
-    "tabs",
-    "<all_urls>"
-  ],
+  "homepage_url": "https://github.com/ganobrega/vtexp",
+  "permissions":["*://*/*", "<all_urls>"],
   "background": {
     "persistent": false,
     "scripts": [
@@ -15,15 +12,7 @@
     ]
   },
   "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "detector.js"
-      ],
-      "run_at": "document_idle"
-    }
+    { "matches": [ "<all_urls>" ], "js": [ "detector.js" ], "run_at": "document_idle" }
   ],
   "icons": {
     "128": "icons/icon.png"
