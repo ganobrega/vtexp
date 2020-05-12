@@ -1,7 +1,7 @@
 {
   "name": "vtexp",
   "version": "1.0.0",
-  "description": "",
+  "description": "VTEXP is an Open-Source and Free extension that facilitates navigation and improves some features of the VTEX platform.",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/ganobrega/vtexp",
