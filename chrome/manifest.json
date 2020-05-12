@@ -31,6 +31,5 @@
   "browser_action": {
     "default_icon": "icons/icon-disabled.png",
     "default_title": "__MSG_extName__"
-  },
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
+  }
 }
