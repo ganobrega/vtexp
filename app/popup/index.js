@@ -10,31 +10,27 @@ import { grommet } from 'grommet/themes';
 import Routes from './routes';
 
 
-export default () => {
-  return (
-    <Router>
-      <Grommet theme={grommet} full>
-        <Switch>
-          {Routes.map(({ path, Component }) => (
-            <Route key={path} exact path={path}>
-              {({ match }) => (
-                <CSSTransition
-                  in={match != null}
-                  timeout={300}
-                  classNames="page"
-                  unmountOnExit
-                >
-                  <>
-                    <Component />
-                  </>
-                </CSSTransition>
-              )}
-            </Route>
-          ))}
-        </Switch>
-      </Grommet>
-    </Router>
-  );
-
-}
-
+export default () => (
+  <Router>
+    <Grommet theme={grommet} full>
+      <Switch>
+        {Routes.map(({ path, Component }) => (
+          <Route key={path} exact path={path}>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={300}
+                classNames="page"
+                unmountOnExit
+              >
+                <>
+                  <Component />
+                </>
+              </CSSTransition>
+            )}
+          </Route>
+        ))}
+      </Switch>
+    </Grommet>
+  </Router>
+);

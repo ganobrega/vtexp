@@ -6,4 +6,7 @@ import '../../app/popup/i18n';
 // Vendors
 import 'animate.css/animate.min.css';
 
+// Styles
+import './popup.css';
+
 ReactDOM.render(<Popup />, document.querySelector('#root'));
