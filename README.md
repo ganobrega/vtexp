@@ -17,4 +17,4 @@ A powerfull and graceful VTEX experience in a browser extension.
 - Chrome
 
 ## Proposal
-VTEXP is an Open-Source and Free extension that facilitates navigation and improves some features of the VTEX platform.
+VTEXP is an Open-Source and Free extension that facilitates navigation and improves some features of the VTEX platform. With it you can use the shortcut menus to navigate the platform's administrative panel, and also change default parameters used for debugging the store's website.
