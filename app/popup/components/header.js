@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { RiRefreshLine, RiSmartphoneLine, RiTabletLine, RiComputerLine } from 'react-icons/ri';
 
 import {
   Heading, Button, Menu, Box, Text, Drop, Anchor,
@@ -107,9 +108,9 @@ const Devices = () => {
 
   return (
     <Box direction="row" gap="small">
-      <SnapButton value="tablet" tooltip={t('Tablet view')}><span role="img" aria-label="Tablet phone">📱</span></SnapButton>
-      <SnapButton value="mobile" tooltip={t('Mobile view')}><span role="img" aria-label="Mobile phone">📱</span></SnapButton>
-      <SnapButton value="desktop" tooltip={t('Desktop view')}><span role="img" aria-label="Desktop">🖥</span></SnapButton>
+      <SnapButton value="tablet" tooltip={t('Tablet view')}><span role="img" aria-label="Tablet phone"><RiTabletLine size="21px" /></span></SnapButton>
+      <SnapButton value="mobile" tooltip={t('Mobile view')}><span role="img" aria-label="Mobile phone"><RiSmartphoneLine size="21px" /></span></SnapButton>
+      <SnapButton value="desktop" tooltip={t('Desktop view')}><span role="img" aria-label="Desktop"><RiComputerLine size="21px" /></span></SnapButton>
     </Box>
   );
 };
@@ -137,7 +138,7 @@ const Tools = () => {
   return (
     <Box direction="row" gap="small">
       {/* <SnapButton disabled value="bookmark" tooltip="Bookmark"><span role="img" aria-label="Bookmark">📕</span></SnapButton> */}
-      <SnapButton value="cache" tooltip={t('Clean Cache')}><span role="img" aria-label="Cache">🧻</span></SnapButton>
+      <SnapButton value="cache" tooltip={t('Clean Cache')}><span role="img" aria-label="Cache"><RiRefreshLine size="21px"/></span></SnapButton>
     </Box>
   );
 };
