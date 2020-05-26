@@ -9,7 +9,8 @@
     "lint": "eslint {chrome,app}/**/*.{js,jsx} --fix",
     "clean": "npx rimraf build/",
     "start": "cross-env NODE_ENV=development webpack --config webpack.dev.js --watch",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.prod.js && npx jszip-cli build/ -o build/vtexp.zip"
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.prod.js && npx jszip-cli build/ -o build/vtexp.zip",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
@@ -63,5 +64,126 @@
     "webpack-chrome-extension-reloader": "^1.3.0",
     "webpack-cli": "^3.3.5",
     "webpack-extension-manifest-plugin": "^0.4.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true
+    },
+    "extends": [
+      "airbnb",
+      "airbnb/hooks",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:promise/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "react",
+      "jsx-a11y",
+      "import",
+      "promise"
+    ],
+    "rules": {
+      "linebreak-style": "off",
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error",
+            "info"
+          ]
+        }
+      ],
+      "import/extensions": "off",
+      "import/no-unresolved": "off",
+      "import/prefer-default-export": "off",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            "jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      ],
+      "react/jsx-one-expression-per-line": "off",
+      "react/no-danger": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/display-name": "off",
+      "jsx-a11y/label-has-associated-control": [
+        2,
+        {
+          "required": {
+            "some": [
+              "nesting",
+              "id"
+            ]
+          }
+        }
+      ]
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      },
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "./"
+          ],
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      }
+    },
+    "globals": {
+      "chrome": true
+    }
   }
 }
