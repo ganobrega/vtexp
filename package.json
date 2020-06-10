@@ -10,7 +10,8 @@
     "clean": "npx rimraf build/",
     "start": "cross-env NODE_ENV=development webpack --config webpack.dev.js --watch",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.prod.js && npx jszip-cli build/ -o build/vtexp.zip",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "docs": "npx serve docs"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
