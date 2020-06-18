@@ -4,21 +4,24 @@
   "description": "__MSG_extDesc__",
   "default_locale": "en",
   "homepage_url": "https://github.com/ganobrega/vtexp",
-  "permissions":["*://*/*", "<all_urls>"],
+  "permissions": ["*://*/*", "<all_urls>"],
   "background": {
     "persistent": false,
-    "scripts": [
-      "background.js"
-    ]
+    "scripts": ["background.js"]
   },
   "content_scripts": [
-    { "matches": [ "<all_urls>" ], "js": [ "detector.js" ], "run_at": "document_idle" }
+    {
+      "matches": ["<all_urls>"],
+      "js": ["detector.js"],
+      "run_at": "document_idle"
+    }
   ],
   "icons": {
     "128": "icons/icon.png"
   },
   "browser_action": {
     "default_icon": "icons/icon-disabled.png",
-    "default_title": "__MSG_extName__"
+    "default_title": "__MSG_extName__",
+    "default_popup": "popup-disabled.html"
   }
 }

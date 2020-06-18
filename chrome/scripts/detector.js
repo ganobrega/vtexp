@@ -17,7 +17,13 @@ function DOMtoString(document_root) {
         break;
       case Node.DOCUMENT_TYPE_NODE:
         // (X)HTML documents are identified by public identifiers
-        html += `<!DOCTYPE ${node.name}${node.publicId ? ` PUBLIC "${node.publicId}"` : ''}${!node.publicId && node.systemId ? ' SYSTEM' : ''}${node.systemId ? ` "${node.systemId}"` : ''}>\n`;
+        html += `<!DOCTYPE ${node.name}${
+          node.publicId ? ` PUBLIC "${node.publicId}"` : ''
+        }${!node.publicId && node.systemId ? ' SYSTEM' : ''}${
+          node.systemId ? ` "${node.systemId}"` : ''
+        }>\n`;
+        break;
+      default:
         break;
     }
     node = node.nextSibling;

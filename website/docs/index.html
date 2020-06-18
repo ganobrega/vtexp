@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>VTEXP - Docs</title>
+  <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css">
+  <style>
+    kbd {
+      display: inline-block;
+      margin: 0 .1em;
+      padding: .1em .6em;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 11px;
+      line-height: 1.4;
+      color: #242729;
+      text-shadow: 0 1px 0 var(--white);
+      background-color: #e4e6e8;
+      border: 1px solid #9fa6ad;
+      border-radius: 3px;
+      box-shadow: 0 1px 1px rgba(12, 13, 14, 0.15), inset 0 1px 0 0 #fff;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="docute"></div>
+  <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+  <script src="https://unpkg.com/docute-google-analytics@1/dist/index.min.js"></script>
+
+  <script>
+    new Docute({
+      target: '#docute',
+      sourcePath: './docs',
+      plugins: [],
+      logo: '<div style="display: flex;"><img height="30px" style="margin-right: 5px" src="/images/logo.png"/><span>{{ $store.getters.config.title }}</span></div>',
+      sidebar: [
+        {
+          title: 'Introduction',
+          link: '/'
+        },
+        {
+          title: 'FAQ',
+          link: '/faq',
+        },
+        {
+          title: 'GitHub',
+          link: 'https://github.com/ganobrega/vtexp'
+        }
+      ],
+    })
+  </script>
+</body>
+
+</html>
