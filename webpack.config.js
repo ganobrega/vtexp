@@ -1,5 +1,4 @@
 const path = require('path');
-const ChromeExtensionReloader = require('webpack-chrome-extension-reloader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const WebpackExtensionManifestPlugin = require('webpack-extension-manifest-plugin');
@@ -44,18 +43,6 @@ const config = {
       template: './chrome/static/popup-disabled.html',
       chunks: [],
       excludeChunks: ['popup', 'devtools', 'detector', 'background'],
-    }),
-
-    /**
-     * Plugins
-     */
-    new ChromeExtensionReloader({
-      port: 9090,
-      reloadPage: true,
-      entries: {
-        contentScripts: ['detector'],
-        background: 'background',
-      },
     }),
     new CopyPlugin([
       {
