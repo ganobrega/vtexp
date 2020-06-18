@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="100px" style="margin-bottom: -20px" src="./docs/images/logo.png"/>
+  <img width="100px" style="margin-bottom: -20px" src="./website/images/logo.png"/>
 
   <h1>VTEXP</h1>
   
@@ -31,9 +31,10 @@
   </a>
 </div>
 
-<img src="./docs/images/screenshot.png">
+<img src="./website/images/screenshot.png">
 
 ## Features
+
 - 🌈 Intuitive and beautiful
 - ⏱ Don't waste time
 - ~~📁 History of changes~~ `WIP`
@@ -41,9 +42,11 @@
 - ~~❌ No Adobe Flash Player~~ `WIP`
 
 ## Supported Browsers
+
 - Chrome
 
 ## What is VTEXP?
+
 VTEXP is an Open-Source and free extension that provides easy navigation and improves some features of the VTEX platform. With him you can use the shortcut menus to navigate the platform's administrative panel, and also change default parameters used for debugging the store's website.
 More features coming soon
 
