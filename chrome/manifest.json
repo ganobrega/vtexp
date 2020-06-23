@@ -4,7 +4,7 @@
   "description": "__MSG_extDesc__",
   "default_locale": "en",
   "homepage_url": "https://github.com/ganobrega/vtexp",
-  "permissions": ["tabs", "activeTab", "http://*/*", "https://*/*"],
+  "permissions": ["activeTab", "http://*/*", "https://*/*"],
   "background": {
     "persistent": false,
     "scripts": ["background.js"]
