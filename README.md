@@ -40,6 +40,7 @@
 - ~~📁 History of changes~~ `WIP`
 - ~~🕶 Customizable~~ `WIP`
 - ~~❌ No Adobe Flash Player~~ `WIP`
+- ~~🛰  Edit and collaborate in real time~~ `WIP`
 
 ## Supported Browsers
 
